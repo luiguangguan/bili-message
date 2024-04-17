@@ -75,7 +75,7 @@ async function init_listener() {
         msgList.value.push(msg as IMsg)
 
         // 是否是点歌弹幕
-        if (message.startsWith('点歌')) {
+        if(/^点歌\s+/.test(message)){
           const { room } = storeToRefs(useAppStore())
           const demand = message.split('点歌')[1].trim()
           // 房管/牌牌点歌不计数
